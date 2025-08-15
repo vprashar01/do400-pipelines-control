@@ -1,12 +1,12 @@
 name: matrix_flow
-on:
-  workflow_dispatch :
-jobs:
-  fruits=[
+fruits=[
     { "name": "apple", "quantity": 1 },
     { "name": "orange", "quantity": 2 },
     { "name": "pear", "quantity": 1 }
   ]  
+on:
+  workflow_dispatch :
+jobs:
   job_1: 
     strategy:
       fail-fast: flase
