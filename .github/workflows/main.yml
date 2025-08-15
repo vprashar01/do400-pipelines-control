@@ -21,7 +21,7 @@ jobs:
     name: My first job
     runs-on: ${{ matrix.os_version }}
     steps:
-      - run: echo '${{ matrix.fruit.name }}' >> $GITHUB_OUTPUT
+      - run: echo '${{ matrix.fruit }}' >> $GITHUB_OUTPUT
       - uses: actions/setup-node@v3.6.0
         with:
           node-version: ${{ matrix.node_version }}
