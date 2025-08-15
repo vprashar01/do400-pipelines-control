@@ -3,8 +3,13 @@ on:
   workflow_dispatch :
 jobs:
   job_1:
+    fruits=[
+      { "name": "apple", "quantity": 1 },
+      { "name": "orange", "quantity": 2 },
+      { "name": "pear", "quantity": 1 }
+    ]
     strategy:
-      fail-fast: true
+      fail-fast: flase
       max-parallel: 3
       matrix:
         os_version: [macos-latest, ubuntu-latest]
@@ -13,6 +18,7 @@ jobs:
     name: My first job
     runs-on: ${{ matrix.os_version }}
     steps:
+      - run: echo ${{ fruits.*.name }} >> $GITHUB_OUTOUT
       - uses: actions/setup-node@v3.6.0
         with:
           node-version: ${{ matrix.node_version }}
